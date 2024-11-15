@@ -8,8 +8,11 @@ def clone_repositories(file_path):
         repos = file.readlines()
 
     for repo in repos:
-        repo_url = repo.strip()
-        repo_name = repo_url.split('/')[-1].replace('.git', '')
-        if not os.path.exists(repo_name):
-            git.Repo.clone_from(repo_url, repo_name)
-        print(f"Cloned {repo_name}")
+        try:
+            repo_url = repo.strip()
+            repo_name = repo_url.split('/')[-1].replace('.git', '')
+            if not os.path.exists(repo_name):
+                git.Repo.clone_from(repo_url, repo_name)
+            print(f"Cloned {repo_name}")
+        except Exception as ex:
+            print(f"cloning {repo} failed because of {ex}")

@@ -13,8 +13,7 @@ def main():
     # Find performance fixes and write to CSV
     all_performance_fixes = []
     with open(input_file, 'r') as file:
-        repos = file.readlines()
-
+        repos = file.readline
     for repo in repos:
         repo_name = repo.strip().split('/')[-1].replace('.git', '')
         performance_fixes = find_performance_fixes(repo_name)
