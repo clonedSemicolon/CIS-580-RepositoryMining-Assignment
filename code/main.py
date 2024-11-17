@@ -10,7 +10,7 @@ def main():
     output_file = 'performance_fixes.csv'
 
     # Clone repositories
-    #clone_repositories(input_file)
+    clone_repositories(input_file)
 
     # Find performance fixes and write to CSV
     all_performance_fixes = []
