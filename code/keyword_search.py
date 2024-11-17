@@ -1,4 +1,5 @@
 from pydriller import Repository
+import re
 
 
 def find_performance_fixes(repo_path):
@@ -12,7 +13,7 @@ def find_performance_fixes(repo_path):
             print(commit.msg)	
             commit_message = commit.msg.lower()
             for keyword in keywords:
-                if keyword in commit_message:
+                if re.search(r'\b' + re.escape(keyword) + r'\b', commit_message):
                     print(f"commitMessage: {commit.msg} Keyword: {keyword}")
                     performance_fixes.append({
                         'repo_name': repo_path,
