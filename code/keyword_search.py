@@ -15,9 +15,8 @@ def find_performance_fixes(repo_path):
                 if keyword in commit_message:
                     print(f"commitMessage: {commit.msg} Keyword: {keyword}")
                     performance_fixes.append({
-                        'hash': commit.hash,
-                        'author': commit.author.name,
-                        'date': commit.author_date,
+                        'repo_name': repo_path,
+                        'commit_id': commit.hash,
                         'message': commit.msg
                     })
                     break
